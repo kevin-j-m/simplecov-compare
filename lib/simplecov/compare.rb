@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "compare/version"
+require_relative "compare/file_line"
 
 module Simplecov
   module Compare
