@@ -2,6 +2,7 @@
 
 require_relative "compare/version"
 require_relative "compare/file_line"
+require_relative "compare/file_result"
 
 module Simplecov
   module Compare
