@@ -62,6 +62,49 @@ module Simplecov
           assert_equal 100, file.lines_covered_percent
         end
       end
+
+      describe "#same_file?" do
+        it "is true when file results share the same name" do
+          file = FileResult.new("name.txt", coverage_data: nil)
+          other = FileResult.new("name.txt", coverage_data: nil)
+
+          assert_equal true, file.same_file?(other)
+        end
+
+        it "is true when file results share the same name with different casing" do
+          file = FileResult.new("name.txt", coverage_data: nil)
+          other = FileResult.new("NAme.txt", coverage_data: nil)
+
+          assert_equal true, file.same_file?(other)
+        end
+
+        it "is false when the file results have a different name" do
+          file = FileResult.new("name.txt", coverage_data: nil)
+          other = FileResult.new("different.txt", coverage_data: nil)
+
+          assert_equal false, file.same_file?(other)
+        end
+
+        it "is false when the passed in comparison is not a file result" do
+          file = FileResult.new("name.txt", coverage_data: nil)
+
+          assert_equal false, file.same_file?(1)
+        end
+
+        it "is false when the file result has no filename" do
+          file = FileResult.new(nil, coverage_data: nil)
+          other = FileResult.new("different.txt", coverage_data: nil)
+
+          assert_equal false, file.same_file?(other)
+        end
+
+        it "is false when the other file result has no filename" do
+          file = FileResult.new("name.txt", coverage_data: nil)
+          other = FileResult.new(nil, coverage_data: nil)
+
+          assert_equal false, file.same_file?(other)
+        end
+      end
     end
   end
 end

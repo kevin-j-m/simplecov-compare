@@ -40,6 +40,12 @@ module Simplecov
 
         ((covered_lines.size / relevant_lines.size.to_f) * 100).round(2)
       end
+
+      def same_file?(other)
+        return false unless other.is_a?(Simplecov::Compare::FileResult)
+
+        filename.to_s.downcase == other.filename.to_s.downcase
+      end
     end
   end
 end
