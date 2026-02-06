@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "minitest/autorun"
-require_relative "../../../lib/simplecov/compare/file_result"
+require "test_helper"
 
 module Simplecov
   module Compare
