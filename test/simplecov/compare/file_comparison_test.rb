@@ -33,6 +33,57 @@ module Simplecov
         end
       end
 
+      describe "#filename" do
+        it "is the name of the base file when base exists" do
+          base = FileResult.new("name.txt", coverage_data: nil)
+          other = FileResult.new("different.txt", coverage_data: nil)
+
+          comparison = FileComparison.new(base, to: other)
+
+          assert_equal "name.txt", comparison.filename
+        end
+
+        it "is the name of the other file when there is no base" do
+          other = FileResult.new("different.txt", coverage_data: nil)
+
+          comparison = FileComparison.new(nil, to: other)
+
+          assert_equal "different.txt", comparison.filename
+        end
+
+        it "is nil when there is neither a base nor another file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_nil comparison.filename
+        end
+      end
+
+      describe "#lines_coverage_different?" do
+        it "is true when the lines coverage is different" do
+          base = Mocktail.of(FileResult)
+          stubs { base.lines_covered_percent }.with { 5 }
+
+          other = Mocktail.of(FileResult)
+          stubs { other.lines_covered_percent }.with { 6 }
+
+          comparison = FileComparison.new(base, to: other)
+
+          assert_equal true, comparison.lines_coverage_different?
+        end
+
+        it "is false when the lines coverage is the same" do
+          base = Mocktail.of(FileResult)
+          stubs { base.lines_covered_percent }.with { 5 }
+
+          other = Mocktail.of(FileResult)
+          stubs { other.lines_covered_percent }.with { 5 }
+
+          comparison = FileComparison.new(base, to: other)
+
+          assert_equal false, comparison.lines_coverage_different?
+        end
+      end
+
       describe "#lines_coverage_equal?" do
         it "is true when the lines coverage is the same" do
           base = Mocktail.of(FileResult)

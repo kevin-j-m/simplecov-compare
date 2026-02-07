@@ -5,6 +5,7 @@ require_relative "compare/file_comparison"
 require_relative "compare/file_line"
 require_relative "compare/file_result"
 require_relative "compare/result_set"
+require_relative "compare/result_set_comparison"
 
 module Simplecov
   module Compare

@@ -14,6 +14,14 @@ module Simplecov
         @base.same_file?(@other)
       end
 
+      def filename
+        @base&.filename || @other&.filename
+      end
+
+      def lines_coverage_different?
+        !lines_coverage_equal?
+      end
+
       def lines_coverage_equal?
         lines_coverage_delta_points.zero?
       end
