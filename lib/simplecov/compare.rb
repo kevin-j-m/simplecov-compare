@@ -13,7 +13,7 @@ require_relative "compare/result_set_comparison"
 
 module Simplecov
   module Compare
-    def self.report(base_path:, to_path:, formatter_class: MarkdownFormatter, reporter_class: GlamourReporter)
+    def self.report(base_path:, to_path:, formatter_class: Formatter::MarkdownFormatter, reporter_class: Reporter::GlamourReporter)
       base = ResultSet.new(ResultFile.new(base_path).coverage_data)
       other = ResultSet.new(ResultFile.new(to_path).coverage_data)
       comparison = ResultSetComparison.new(base, to: other)

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/simplecov/compare"
+
+Simplecov::Compare.report(
+  base_path: ARGV[0],
+  to_path: ARGV[1],
+)
