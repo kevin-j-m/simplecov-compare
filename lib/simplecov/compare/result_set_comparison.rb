@@ -16,24 +16,36 @@ module Simplecov
         @other.lines_covered_percent
       end
 
-      def lines_covered_percent_delta_points
+      def lines_coverage_increased?
+        lines_coverage_delta_points.positive?
+      end
+
+      def lines_coverage_decreased?
+        lines_coverage_delta_points.negative?
+      end
+
+      def lines_coverage_delta_points
         return new_lines_covered_percent if @base.nil?
         return -original_lines_covered_percent if @other.nil?
 
         new_lines_covered_percent - original_lines_covered_percent
       end
 
-      def differences
-        return @differences if defined?(@differences)
+      def file_differences
+        return @file_differences if defined?(@file_differences)
 
         compare
-        @differences
+        @file_differences
+      end
+
+      def file_differences?
+        !file_differences.empty?
       end
 
       private
 
       def compare
-        @differences = []
+        @file_differences = []
         add_differences_from_base
         add_new_files_from_other
       end
@@ -47,7 +59,7 @@ module Simplecov
 
           file_comparison = FileComparison.new(base_file, to: match)
           if file_comparison.lines_coverage_different?
-            @differences << file_comparison
+            @file_differences << file_comparison
           end
         end
       end
@@ -55,7 +67,7 @@ module Simplecov
       def add_new_files_from_other
         other_file_set.each do |other_file|
           file_comparison = FileComparison.new(nil, to: other_file)
-          @differences << file_comparison
+          @file_differences << file_comparison
         end
       end
 

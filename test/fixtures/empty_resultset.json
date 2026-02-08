@@ -1,0 +1,13 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/path/to/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          null
+        ]
+      }
+    },
+    "timestamp": 1770264586
+  }
+}
