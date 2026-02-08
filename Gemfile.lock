@@ -11,6 +11,7 @@ GEM
     erb (6.0.1)
     glamour (0.2.1)
     glamour (0.2.1-x86_64-darwin)
+    glamour (0.2.1-x86_64-linux-gnu)
     io-console (0.8.2)
     irb (1.16.0)
       pp (>= 0.6.0)
@@ -43,6 +44,7 @@ GEM
 PLATFORMS
   ruby
   x86_64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   irb
@@ -56,6 +58,7 @@ CHECKSUMS
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   glamour (0.2.1) sha256=1d43c27c9f8e786e36fccb344b5700fd69e2f3051c47e4cb634b2c5388ae2c47
   glamour (0.2.1-x86_64-darwin) sha256=a246bc06ebea9c1c51bdb9522631c9bc95e9dd4a63433e7de9c0c26c6a045a9d
+  glamour (0.2.1-x86_64-linux-gnu) sha256=6b65fc917103af530418ccf3cb61752e8db3aa98e7b80d92e1a9ebe49750f2f6
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.16.0) sha256=2abe56c9ac947cdcb2f150572904ba798c1e93c890c256f8429981a7675b0806
   minitest (6.0.1) sha256=7854c74f48e2e975969062833adc4013f249a4b212f5e7b9d5c040bf838d54bb
