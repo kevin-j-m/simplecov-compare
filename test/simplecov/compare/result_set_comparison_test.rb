@@ -5,11 +5,76 @@ require "test_helper"
 module Simplecov
   module Compare
     describe ResultSetComparison do
+      describe "#original_lines_covered_percent" do
+        it "is the lines covered percent of the base" do
+          base = Mocktail.of(ResultSet)
+          stubs { base.lines_covered_percent }.with { 33.42 }
+
+          comparison = ResultSetComparison.new(base, to: nil)
+
+          assert_equal 33.42, comparison.original_lines_covered_percent
+        end
+      end
+
+      describe "#new_lines_covered_percent" do
+        it "is the lines covered percent of the comparison" do
+          other = Mocktail.of(ResultSet)
+          stubs { other.lines_covered_percent }.with { 42.33 }
+
+          comparison = ResultSetComparison.new(nil, to: other)
+
+          assert_equal 42.33, comparison.new_lines_covered_percent
+        end
+      end
+
+      describe "#lines_covered_percent_delta_points" do
+        it "is the positive difference between coverage values when the other result has higher coverage" do
+
+          base = Mocktail.of(ResultSet)
+          stubs { base.lines_covered_percent }.with { 33 }
+          other = Mocktail.of(ResultSet)
+          stubs { other.lines_covered_percent }.with { 42 }
+
+          comparison = ResultSetComparison.new(base, to: other)
+
+          assert_equal 9, comparison.lines_covered_percent_delta_points
+        end
+
+        it "is the negative difference between coverage values when the other result has higher coverage" do
+          base = Mocktail.of(ResultSet)
+          stubs { base.lines_covered_percent }.with { 33 }
+          other = Mocktail.of(ResultSet)
+          stubs { other.lines_covered_percent }.with { 30 }
+
+          comparison = ResultSetComparison.new(base, to: other)
+
+          assert_equal -3, comparison.lines_covered_percent_delta_points
+        end
+
+        it "is a positive amount of the other lines coverage when there is no base" do
+          other = Mocktail.of(ResultSet)
+          stubs { other.lines_covered_percent }.with { 30 }
+
+          comparison = ResultSetComparison.new(nil, to: other)
+
+          assert_equal 30, comparison.lines_covered_percent_delta_points
+        end
+
+        it "is a negative amount of the base lines coverage when there is no other" do
+          base = Mocktail.of(ResultSet)
+          stubs { base.lines_covered_percent }.with { 33 }
+
+          comparison = ResultSetComparison.new(base, to: nil)
+
+          assert_equal -33, comparison.lines_covered_percent_delta_points
+        end
+      end
+
       describe "#differences" do
         it "is an empty collection when the result sets are the same" do
 
-          base = ResultSet.new("test/fixtures/sample_resultset.json")
-          other = ResultSet.new("test/fixtures/sample_resultset.json")
+          base = ResultSet.new(file_path: "test/fixtures/sample_resultset.json")
+          other = ResultSet.new(file_path: "test/fixtures/sample_resultset.json")
 
           comparison = ResultSetComparison.new(base, to: other)
 

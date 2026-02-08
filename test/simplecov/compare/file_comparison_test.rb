@@ -199,7 +199,7 @@ module Simplecov
           assert_equal 10, comparison.lines_coverage_delta_points
         end
 
-        it "is the negative difference between the base and hte lower other coverage" do
+        it "is the negative difference between the base and the lower other coverage" do
           base = Mocktail.of(FileResult)
           stubs { base.lines_covered_percent }.with { 60 }
 

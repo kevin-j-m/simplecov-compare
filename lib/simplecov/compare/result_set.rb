@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-
 module Simplecov
   module Compare
     class ResultSet

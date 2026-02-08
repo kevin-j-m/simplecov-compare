@@ -1,13 +1,26 @@
 # frozen_string_literal: true
 
-require "json"
-
 module Simplecov
   module Compare
     class ResultSetComparison
       def initialize(base, to:)
         @base = base
         @other = to
+      end
+
+      def original_lines_covered_percent
+        @base.lines_covered_percent
+      end
+
+      def new_lines_covered_percent
+        @other.lines_covered_percent
+      end
+
+      def lines_covered_percent_delta_points
+        return new_lines_covered_percent if @base.nil?
+        return -original_lines_covered_percent if @other.nil?
+
+        new_lines_covered_percent - original_lines_covered_percent
       end
 
       def differences
