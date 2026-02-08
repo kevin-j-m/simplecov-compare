@@ -1,5 +1,9 @@
 ## Current release (in development)
 
+* Add instructions about running on command line.
+
+  *Kevin Murphy*
+
 * Test against Ruby 3.4 and 4.0.
 
   *Kevin Murphy*

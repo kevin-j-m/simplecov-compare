@@ -20,6 +20,16 @@ gem install simplecov-compare
 
 ## Usage
 
+### Command Line
+
+Given an earlier coverage JSON output named `path/to/before.json` and a later
+report named `path/to/after.json`, you can run:
+
+```sh
+simplecov-compare path/to/before.json path/to/after.json
+```
+### In Ruby
+
 Given an earlier coverage JSON output named `path/to/before.json` and a later
 report named `path/to/after.json`, you can run:
 
