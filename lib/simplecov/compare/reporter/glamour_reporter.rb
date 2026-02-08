@@ -7,7 +7,7 @@ module Simplecov
     module Reporter
       class GlamourReporter
         def report(output)
-          puts puts Glamour.render(output)
+          puts Glamour.render(output)
         end
       end
     end
