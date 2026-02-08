@@ -5,7 +5,7 @@ require_relative "compare/file_comparison"
 require_relative "compare/file_line"
 require_relative "compare/file_result"
 require_relative "compare/formatter/markdown_formatter"
-# require_relative "compare/reporter/glamour_reporter"
+require_relative "compare/reporter/glamour_reporter"
 require_relative "compare/reporter/simple_reporter"
 require_relative "compare/result_file"
 require_relative "compare/result_set"
@@ -13,8 +13,7 @@ require_relative "compare/result_set_comparison"
 
 module Simplecov
   module Compare
-    # Default for top-level is the glamour reporter?
-    def self.report(base_path:, to_path:, formatter_class: MarkdownFormatter, reporter_class: SimpleReporter)
+    def self.report(base_path:, to_path:, formatter_class: MarkdownFormatter, reporter_class: GlamourReporter)
       base = ResultSet.new(ResultFile.new(base_path).coverage_data)
       other = ResultSet.new(ResultFile.new(to_path).coverage_data)
       comparison = ResultSetComparison.new(base, to: other)
