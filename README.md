@@ -28,6 +28,8 @@ report named `path/to/after.json`, you can run:
 ```sh
 simplecov-compare path/to/before.json path/to/after.json
 ```
+![result of simplecov-compare output in terminal](simplecov-compare-terminal.png?raw=true)
+
 ### In Ruby
 
 Given an earlier coverage JSON output named `path/to/before.json` and a later
