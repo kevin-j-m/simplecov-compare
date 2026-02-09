@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simplecov-compare (0.2.0)
+    simplecov-compare (0.2.1)
       glamour
 
 GEM
@@ -70,7 +70,7 @@ CHECKSUMS
   rake (13.3.1) sha256=8c9e89d09f66a26a01264e7e3480ec0607f0c497a861ef16063604b1b08eb19c
   rdoc (7.1.0) sha256=494899df0706c178596ca6e1d50f1b7eb285a9b2aae715be5abd742734f17363
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
-  simplecov-compare (0.2.0)
+  simplecov-compare (0.2.1)
   sorbet-eraser (0.3.1) sha256=9110fae4cc5ba53441b1b0885910bace0b1d5e8473ea88979b93408fd010e1ff
   sorbet-runtime (0.5.12443) sha256=95a3667e2f2410857bca9952de98b88185b7e266c48e42ef4c6d2dc3fa73a6cc
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1

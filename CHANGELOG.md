@@ -1,5 +1,7 @@
 ## Current release (in development)
 
+## 0.2.1 [2026-03-08]
+
 * Increase Glamour line width word wrap.
 
   *Kevin Murphy*
