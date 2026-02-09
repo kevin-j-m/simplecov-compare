@@ -1,5 +1,9 @@
 ## Current release (in development)
 
+* Increase Glamour line width word wrap.
+
+  *Kevin Murphy*
+
 ## 0.2.0 [2026-03-08]
 
 * Markdown formatter shows the coverage before and after per file.
