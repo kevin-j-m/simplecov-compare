@@ -42,26 +42,38 @@ module Simplecov
       end
 
       def original_lines_covered_percent
+        return 0 if @base.nil?
+
         @base.lines_covered_percent
       end
 
       def original_num_relevant_lines
+        return 0 if @base.nil?
+
         @base.num_relevant_lines
       end
 
       def original_num_covered_lines
+        return 0 if @base.nil?
+
         @base.num_covered_lines
       end
 
       def new_lines_covered_percent
+        return 0 if @other.nil?
+
         @other.lines_covered_percent
       end
 
       def new_num_relevant_lines
+        return 0 if @other.nil?
+
         @other.num_relevant_lines
       end
 
       def new_num_covered_lines
+        return 0 if @other.nil?
+
         @other.num_covered_lines
       end
     end

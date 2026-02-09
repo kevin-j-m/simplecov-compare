@@ -14,11 +14,11 @@ describe Simplecov::Compare do
 
         ## File Differences
 
-        | File Name | Coverage Change |
-        | --------- | --------------- |
-        | /path/to/app/models/other_model.rb | 50.0 |
-        | /path/to/app/models/model_name.rb | 81.82 |
-        | /path/to/app/helpers/application_helper.rb | 100.0 |
+        | File Name | Delta | From | To |
+        | --------- | ----- | ---- | -- |
+        | /path/to/app/models/other_model.rb | 50.0 | 0% (0/0) | 50.0% (6/12) |
+        | /path/to/app/models/model_name.rb | 81.82 | 0% (0/0) | 81.82% (9/11) |
+        | /path/to/app/helpers/application_helper.rb | 100.0 | 0.0% (0/1) | 100.0% (1/1) |
 
 
       EXPECTED_OUTPUT

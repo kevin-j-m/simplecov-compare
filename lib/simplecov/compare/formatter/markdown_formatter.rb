@@ -58,8 +58,8 @@ module Simplecov
             <<~FILE_DIFF
               ## File Differences
 
-              | File Name | Coverage Change |
-              | --------- | --------------- |
+              | File Name | Delta | From | To |
+              | --------- | ----- | ---- | -- |
               #{file_differences_table_contents(result_set_comparison)}
             FILE_DIFF
           else
@@ -76,7 +76,10 @@ module Simplecov
             .file_differences
             .sort_by { _1.lines_coverage_delta_points }
             .each_with_object(+"") do |file_difference, output|
-              output << "| #{file_difference.filename} | #{file_difference.lines_coverage_delta_points} |\n"
+              output << "| #{file_difference.filename} "\
+                "| #{file_difference.lines_coverage_delta_points} "\
+                "| #{file_difference.original_lines_covered_percent}% (#{file_difference.original_num_covered_lines}/#{file_difference.original_num_relevant_lines}) "\
+                "| #{file_difference.new_lines_covered_percent}% (#{file_difference.new_num_covered_lines}/#{file_difference.new_num_relevant_lines}) |\n"
             end
         end
       end

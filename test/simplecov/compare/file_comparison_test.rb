@@ -239,6 +239,12 @@ module Simplecov
 
           assert_equal 50, comparison.original_lines_covered_percent
         end
+
+        it "is 0 with no base file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.original_lines_covered_percent
+        end
       end
 
       describe "#new_lines_covered_percent" do
@@ -249,6 +255,12 @@ module Simplecov
           comparison = FileComparison.new(nil, to: other)
 
           assert_equal 75, comparison.new_lines_covered_percent
+        end
+
+        it "is 0 with no comparison file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.new_lines_covered_percent
         end
       end
 
@@ -261,6 +273,12 @@ module Simplecov
 
           assert_equal 33, comparison.original_num_relevant_lines
         end
+
+        it "is 0 with no base file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.original_num_relevant_lines
+        end
       end
 
       describe "#original_num_covered_lines" do
@@ -271,6 +289,12 @@ module Simplecov
           comparison = FileComparison.new(base, to: nil)
 
           assert_equal 17, comparison.original_num_covered_lines
+        end
+
+        it "is 0 with no base file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.original_num_covered_lines
         end
       end
 
@@ -283,6 +307,12 @@ module Simplecov
 
           assert_equal 42, comparison.new_num_relevant_lines
         end
+
+        it "is 0 with no comparison file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.new_num_relevant_lines
+        end
       end
 
       describe "#new_num_covered_lines" do
@@ -294,8 +324,13 @@ module Simplecov
 
           assert_equal 71, comparison.new_num_covered_lines
         end
-      end
 
+        it "is 0 with no comparison file" do
+          comparison = FileComparison.new(nil, to: nil)
+
+          assert_equal 0, comparison.new_num_covered_lines
+        end
+      end
     end
   end
 end

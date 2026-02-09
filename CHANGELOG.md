@@ -1,5 +1,13 @@
 ## Current release (in development)
 
+* Markdown formatter shows the coverage before and after per file.
+
+  *Kevin Murphy*
+
+* Expose the number of relevant and covered lines per file.
+
+  *Kevin Murphy*
+
 * Add instructions about running on command line.
 
   *Kevin Murphy*
