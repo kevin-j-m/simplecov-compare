@@ -1,5 +1,7 @@
 ## Current release (in development)
 
+## 0.2.0 [2026-03-08]
+
 * Markdown formatter shows the coverage before and after per file.
 
   *Kevin Murphy*
