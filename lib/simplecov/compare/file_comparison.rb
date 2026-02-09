@@ -38,7 +38,31 @@ module Simplecov
         return @other.lines_covered_percent if @base.nil?
         return (-@base.lines_covered_percent) if @other.nil?
 
-        @other.lines_covered_percent - @base.lines_covered_percent
+        (@other.lines_covered_percent - @base.lines_covered_percent).round(2)
+      end
+
+      def original_lines_covered_percent
+        @base.lines_covered_percent
+      end
+
+      def original_num_relevant_lines
+        @base.num_relevant_lines
+      end
+
+      def original_num_covered_lines
+        @base.num_covered_lines
+      end
+
+      def new_lines_covered_percent
+        @other.lines_covered_percent
+      end
+
+      def new_num_relevant_lines
+        @other.num_relevant_lines
+      end
+
+      def new_num_covered_lines
+        @other.num_covered_lines
       end
     end
   end

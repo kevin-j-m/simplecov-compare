@@ -28,7 +28,7 @@ module Simplecov
         return new_lines_covered_percent if @base.nil?
         return -original_lines_covered_percent if @other.nil?
 
-        new_lines_covered_percent - original_lines_covered_percent
+        (new_lines_covered_percent - original_lines_covered_percent).round(2)
       end
 
       def file_differences

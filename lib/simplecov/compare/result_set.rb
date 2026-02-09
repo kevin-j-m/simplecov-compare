@@ -20,11 +20,11 @@ module Simplecov
       end
 
       def num_relevant_lines
-        files.sum { _1.relevant_lines.size }
+        files.sum { _1.num_relevant_lines }
       end
 
       def num_covered_lines
-        files.sum { _1.covered_lines.size }
+        files.sum { _1.num_covered_lines }
       end
 
       def lines_covered_percent

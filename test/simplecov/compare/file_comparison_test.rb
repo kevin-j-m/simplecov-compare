@@ -229,6 +229,73 @@ module Simplecov
           assert_equal(-50, comparison.lines_coverage_delta_points)
         end
       end
+
+      describe "#original_lines_covered_percent" do
+        it "is the lines coverage of the base file" do
+          base = Mocktail.of(FileResult)
+          stubs { base.lines_covered_percent }.with { 50 }
+
+          comparison = FileComparison.new(base, to: nil)
+
+          assert_equal 50, comparison.original_lines_covered_percent
+        end
+      end
+
+      describe "#new_lines_covered_percent" do
+        it "is the lines coverage of the comparison file" do
+          other = Mocktail.of(FileResult)
+          stubs { other.lines_covered_percent }.with { 75 }
+
+          comparison = FileComparison.new(nil, to: other)
+
+          assert_equal 75, comparison.new_lines_covered_percent
+        end
+      end
+
+      describe "#original_num_relevant_lines" do
+        it "is the number of relevant lines of the base file" do
+          base = Mocktail.of(FileResult)
+          stubs { base.num_relevant_lines }.with { 33 }
+
+          comparison = FileComparison.new(base, to: nil)
+
+          assert_equal 33, comparison.original_num_relevant_lines
+        end
+      end
+
+      describe "#original_num_covered_lines" do
+        it "is the number of covered lines of the base file" do
+          base = Mocktail.of(FileResult)
+          stubs { base.num_covered_lines }.with { 17 }
+
+          comparison = FileComparison.new(base, to: nil)
+
+          assert_equal 17, comparison.original_num_covered_lines
+        end
+      end
+
+      describe "#new_num_relevant_lines" do
+        it "is the number of relevant lines of the comparison file" do
+          other = Mocktail.of(FileResult)
+          stubs { other.num_relevant_lines }.with { 42 }
+
+          comparison = FileComparison.new(nil, to: other)
+
+          assert_equal 42, comparison.new_num_relevant_lines
+        end
+      end
+
+      describe "#new_num_covered_lines" do
+        it "is the number of covered lines of the comparison file" do
+          other = Mocktail.of(FileResult)
+          stubs { other.num_covered_lines }.with { 71 }
+
+          comparison = FileComparison.new(nil, to: other)
+
+          assert_equal 71, comparison.new_num_covered_lines
+        end
+      end
+
     end
   end
 end

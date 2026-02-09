@@ -38,12 +38,30 @@ module Simplecov
         end
       end
 
+      describe "#num_relevant_lines" do
+        it "provides the line count with relevant coverage information" do
+          coverage_data = { "lines" => [0, 1, nil, 47] }
+          file = FileResult.new(nil, coverage_data:)
+
+          assert_equal 3, file.num_relevant_lines
+        end
+      end
+
       describe "#covered_lines" do
         it "provides the lines that have been covered in the coverage report" do
           coverage_data = { "lines" => [0, 1, nil, 47] }
           file = FileResult.new(nil, coverage_data:)
 
           assert_equal [2, 4], file.covered_lines.map { _1.line_number }
+        end
+      end
+
+      describe "#num_covered_lines" do
+        it "provides the line count that have been covered in the coverage report" do
+          coverage_data = { "lines" => [0, 1, nil, 47] }
+          file = FileResult.new(nil, coverage_data:)
+
+          assert_equal 2, file.num_covered_lines
         end
       end
 

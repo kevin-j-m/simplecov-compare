@@ -29,14 +29,22 @@ module Simplecov
         lines.select { _1.relevant? }
       end
 
+      def num_relevant_lines
+        relevant_lines.size
+      end
+
       def covered_lines
         lines.select { _1.covered? }
       end
 
-      def lines_covered_percent
-        return 100 if relevant_lines.size.zero?
+      def num_covered_lines
+        covered_lines.size
+      end
 
-        ((covered_lines.size / relevant_lines.size.to_f) * 100).round(2)
+      def lines_covered_percent
+        return 100 if num_relevant_lines.zero?
+
+        ((num_covered_lines / num_relevant_lines.to_f) * 100).round(2)
       end
 
       def same_file?(other)
