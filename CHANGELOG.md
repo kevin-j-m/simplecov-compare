@@ -1,5 +1,7 @@
 ## Current release (in development)
 
+## 0.2.2 [2026-03-09]
+
 * Expose and display total number of file differences.
 
   *Kevin Murphy*
