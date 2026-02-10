@@ -56,7 +56,7 @@ module Simplecov
         def file_differences(result_set_comparison)
           if result_set_comparison.file_differences?
             <<~FILE_DIFF
-              ## File Differences
+              ## File Differences (#{result_set_comparison.num_file_differences})
 
               | File Name | Delta | From | To |
               | --------- | ----- | ---- | -- |

@@ -56,6 +56,7 @@ module Simplecov
             stubs { big_increase.new_num_relevant_lines }.with { 4 }
 
             stubs { comparison.file_differences }.with { [big_increase, small_decrease, big_decrease, small_increase] }
+            stubs { comparison.num_file_differences }.with { 4 }
 
             markdown_result = <<~MARKDOWN
               # Coverage Comparison
@@ -64,7 +65,7 @@ module Simplecov
 
               Coverage increased 9 points from 33% to 42%.
 
-              ## File Differences
+              ## File Differences (4)
 
               | File Name | Delta | From | To |
               | --------- | ----- | ---- | -- |

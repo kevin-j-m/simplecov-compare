@@ -244,6 +244,24 @@ module Simplecov
           assert_equal false, comparison.file_differences?
         end
       end
+
+      describe "#num_file_differences" do
+        it "counts the number of differences found" do
+          base_file = Mocktail.of(FileResult)
+          stubs { base_file.lines_covered_percent }.with { 5 }
+          stubs { base_file.filename }.with { "base.rb" }
+
+          base = Mocktail.of(ResultSet)
+          stubs { base.files }.with { [base_file] }
+
+          other = Mocktail.of(ResultSet)
+          stubs { other.files }.with { [] }
+
+          comparison = ResultSetComparison.new(base, to: other)
+
+          assert_equal 1, comparison.num_file_differences
+        end
+      end
     end
   end
 end

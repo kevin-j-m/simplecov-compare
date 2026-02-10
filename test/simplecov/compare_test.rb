@@ -12,7 +12,7 @@ describe Simplecov::Compare do
 
         Coverage increased 66.67 points from 0.0% to 66.67%.
 
-        ## File Differences
+        ## File Differences (3)
 
         | File Name | Delta | From | To |
         | --------- | ----- | ---- | -- |

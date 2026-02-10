@@ -1,5 +1,9 @@
 ## Current release (in development)
 
+* Expose and display total number of file differences.
+
+  *Kevin Murphy*
+
 ## 0.2.1 [2026-03-08]
 
 * Increase Glamour line width word wrap.

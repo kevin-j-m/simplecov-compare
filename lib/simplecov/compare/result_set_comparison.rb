@@ -42,6 +42,10 @@ module Simplecov
         !file_differences.empty?
       end
 
+      def num_file_differences
+        file_differences.size
+      end
+
       private
 
       def compare
